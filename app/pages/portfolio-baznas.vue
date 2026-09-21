@@ -6,11 +6,11 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Portofolio akademik, materi presentasi eksekutif pimpinan, publikasi International Journal of Zakat (IJAZ - BAZNAS), dan rekam jejak riset ZISWAF oleh Arva Athallah Susanto, S.EI., M.SEI.'
+      content: 'Portofolio akademik, materi presentasi eksekutif pimpinan, publikasi Google Scholar, pengelolaan OJS Journal MASEI Al-Khawarizmi, dan International Journal of Zakat (IJAZ) oleh Arva Athallah Susanto, S.EI., M.SEI.'
     },
     {
       name: 'keywords',
-      content: 'BAZNAS RI, Staf Riset dan Kajian Pengembangan, IJAZ BAZNAS, Materi Pimpinan, Prof Tika Widiastuti, Arva Athallah Susanto, SROI Zakat, ZCP BAZNAS, Gaya Hidup Halal'
+      content: 'BAZNAS RI, Staf Riset dan Kajian Pengembangan, MASEI Al Khawarizmi, OJS 3, IJAZ BAZNAS, Google Scholar Arva Athallah Susanto, SROI Zakat, ZCP BAZNAS, Gaya Hidup Halal'
     },
     {
       property: 'og:title',
@@ -18,7 +18,7 @@ useHead({
     },
     {
       property: 'og:description',
-      content: 'Koleksi materi presentasi pimpinan, publikasi ilmiah IJAZ, dan kompetensi riset BAZNAS RI.'
+      content: 'Koleksi materi presentasi pimpinan, 22+ publikasi Google Scholar, tim redaksi OJS MASEI, dan kompetensi riset BAZNAS RI.'
     }
   ]
 })
@@ -251,134 +251,299 @@ onMounted(() => {
   })
 })
 
-// ── RESEARCH CATALOG FILTER STATE ───────────────────────
-const activeFilter = ref('Semua')
-const categories = ['Semua', 'Publikasi IJAZ BAZNAS', 'Blockchain & Fintech', 'Tata Kelola OPZ', 'Kebijakan Publik']
-
-interface ResearchItem {
-  id: string
-  title: string
-  category: string
-  year: string
-  publisher: string
-  badge: string
-  excerpt: string
-  methodology: string
-  findings: string[]
-  link?: string
-  linkText?: string
-  tags: string[]
-}
-
-const researchItems: ResearchItem[] = [
-  {
-    id: 'ijaz-blockchain',
-    title: 'Critical Assessment of Blockchain Applications in Zakat Literature: Lessons for Government and Future Directions',
-    category: 'Publikasi IJAZ BAZNAS',
-    year: '2025',
-    publisher: 'International Journal of Zakat (IJAZ - BAZNAS)',
-    badge: 'Publikasi Utama IJAZ',
-    excerpt: 'Evaluasi kritis dan sistematis mengenai pemanfaatan teknologi blockchain dalam ekosistem zakat nasional, menganalisis tantangan tata kelola bagi regulator serta arah strategis implementasi masa depan bagi BAZNAS.',
-    methodology: 'Systematic Literature Review (SLR) & Critical Thematic Synthesis',
-    findings: [
-      'Smart contract terbukti mampu mereduksi asimetri informasi dan biaya audit operasional OPZ hingga 35-40%.',
-      'Identifikasi kerangka trilemma tata kelola (governance, skalabilitas, dan kepatuhan syariah) bagi regulator zakat.',
-      'Rekomendasi model hybrid blockchain untuk interoperabilitas data mustahik nasional terintegrasi SiMBA.'
-    ],
-    link: 'https://ijazbaznas.com',
-    linkText: 'Buka di IJAZ BAZNAS →',
-    tags: ['Blockchain', 'Smart Contracts', 'IJAZ BAZNAS', 'Regulatory Tech']
-  },
-  {
-    id: 'digital-macro-zakat',
-    title: 'Long-Term Nexus between Digitalization and Macroeconomy on Zakat Collection in Indonesia',
-    category: 'Blockchain & Fintech',
-    year: '2025',
-    publisher: 'Applied Islamic Economics & Econometrics Review',
-    badge: 'Kajian Ekonometrika',
-    excerpt: 'Studi empiris jangka panjang mengenai interaksi antara akselerasi platform digital, variabel makroekonomi (inflasi, PDB per kapita, suku bunga), dan realisasi penghimpunan ZIS pada BAZNAS.',
-    methodology: 'Autoregressive Distributed Lag (ARDL) & Cointegration Analysis',
-    findings: [
-      'Digitalisasi kanal pembayaran zakat berkontribusi elastisitas positif signifikan terhadap penghimpunan jangka panjang.',
-      'Guncangan makroekonomi jangka pendek dapat diredam melalui fleksibilitas transaksi multi-channel payment.',
-      'Pentingnya integrasi ekosistem e-wallet nasional dengan sistem penghimpunan BAZNAS daerah.'
-    ],
-    link: 'https://scholar.google.com/citations?user=7gI4mGYAAAAJ&hl=id',
-    linkText: 'Lihat Sitasi Google Scholar →',
-    tags: ['Digital ZISWAF', 'Makroekonomi', 'ARDL', 'Penghimpunan Zakat']
-  },
-  {
-    id: 'slr-opz-transformation',
-    title: 'Transformasi Digital Organisasi Pengelola Zakat (OPZ): Analisis Bibliometrik & Systematic Review',
-    category: 'Tata Kelola OPZ',
-    year: '2024–2025',
-    publisher: 'Center of Islamic Social Finance (CISF) Working Paper',
-    badge: 'Kajian Tata Kelola',
-    excerpt: 'Pemetaan komprehensif transformasi digital amil dan lembaga OPZ di Indonesia dalam mengadopsi big data, machine learning, dan pelaporan keuangan real-time.',
-    methodology: 'Bibliometric VOSviewer & PRISMA Framework',
-    findings: [
-      'Kesiapan digital amil menjadi faktor penentu efektivitas implementasi SiMBA di tingkat kabupaten/kota.',
-      'Transparansi digital berbanding lurus dengan loyalitas dan indeks kepercayaan muzakki sebesar 42%.',
-      'Penyusunan standar kompetensi digital amil zakat berbasis Standar Kompetensi Kerja Nasional Indonesia (SKKNI).'
-    ],
-    tags: ['Tata Kelola OPZ', 'SiMBA', 'Bibliometrik', 'Amil Kompeten']
-  },
-  {
-    id: 'genz-digital-zakat',
-    title: 'Determinants of Digital Platform Usage for Zakat Payments among Millennials and Gen Z',
-    category: 'Kebijakan Publik',
-    year: '2024',
-    publisher: 'Islamic Financial Technology Studies',
-    badge: 'Riset Perilaku Muzakki',
-    excerpt: 'Analisis faktor psikologis, kemudahan teknologi (TAM/UTAUT), dan religiositas generasi muda dalam membayar zakat melalui platform digital resmi BAZNAS.',
-    methodology: 'Structural Equation Modeling (PLS-SEM)',
-    findings: [
-      'Perceived Trust dan UI/UX Simplicity mendominasi keputusan pembayaran zakat digital generasi Z.',
-      'Fitur pelaporan jejak dampak (impact tracking) meningkatkan intensi donasi berulang secara signifikan.',
-      'Rekomendasi strategi gamifikasi dan micro-giving untuk engagement milenial.'
-    ],
-    tags: ['Gen Z Muzakki', 'PLS-SEM', 'Fintech Zakat', 'Perilaku Konsumen']
-  }
-]
-
-const filteredItems = computed(() => {
-  if (activeFilter.value === 'Semua') return researchItems
-  return researchItems.filter(item => item.category === activeFilter.value)
-})
-
 // ── BAZNAS JOB REQUIREMENTS ALIGNMENT MATRIX ────────────
 const jobMatrix = [
   {
     number: '01',
     roleTask: 'Melakukan riset, kajian, dan pengembangan mengenai zakat',
     evidence: 'Publikasi di International Journal of Zakat (IJAZ - BAZNAS), pemodelan ekonometrika ARDL makroekonomi zakat, dan kajian transformasi 4 ER (Rescue, Recovery, Reinforcement, Resilience).',
+    link: 'https://scholar.google.com/citations?user=7gI4mGYAAAAJ&hl=id',
+    linkText: 'Lihat Sitasi Scholar →',
     statusBadge: '100% Terpenuhi'
   },
   {
     number: '02',
     roleTask: 'Membuat materi untuk Pimpinan BAZNAS',
     evidence: 'Rekam jejak terbukti dalam menyusun 4 set materi presentasi strategis tingkat pimpinan sivitas akademika & pakar (Prof. Dr. Tika Widiastuti) dengan standar substansi akademik dan visual berkualitas tinggi.',
+    link: '#presentation-carousel',
+    linkText: 'Buka Carousel Materi Pimpinan ↓',
     statusBadge: '100% Terpenuhi'
   },
   {
     number: '03',
     roleTask: 'Melakukan administrasi yang mendukung kegiatan riset & kajian',
     evidence: 'Pengalaman sebagai Research Consultant di Center of Islamic Social Finance (CISF) dan Research Assistant Guru Besar Keuangan Sosial Islam (Prof. Dr. Tika Widiastuti).',
+    link: 'https://www.cisf.or.id',
+    linkText: 'Kunjungi CISF →',
     statusBadge: '100% Terpenuhi'
   },
   {
     number: '04',
-    roleTask: 'Mengelola jurnal IJAZ (International Journal of Zakat)',
-    evidence: 'Penulis aktif di IJAZ BAZNAS, menguasai alur kerja Open Journal Systems (OJS), telaah sejawat (peer-review), serta kaidah bibliometrik dan sitasi internasional.',
+    roleTask: 'Mengelola jurnal IJAZ (International Journal of Zakat) & Pengelolaan Jurnal Ilmiah OJS',
+    evidence: 'Tim Redaksi (Editorial Office & IT Infrastructure) di Journal MASEI Al-Khawarizmi (journal.masei.or.id), bertanggung jawab penuh memastikan infrastruktur server, OJS 3.4.0.8, alur peer-review, submission, dan OJS berjalan dengan sempurna. Sekaligus merupakan penulis aktif di International Journal of Zakat (IJAZ - BAZNAS).',
+    link: 'https://journal.masei.or.id/al-khawarizmi/about/contact',
+    linkText: 'Cek SK & Kontak Redaksi OJS MASEI →',
     statusBadge: '100% Terpenuhi'
   },
   {
     number: '05',
     roleTask: 'Pengoperasian tools riset & kemampuan analisis ilmiah',
     evidence: 'Mahir mengoperasikan VOSviewer, SmartPLS (PLS-SEM), EViews/Stata (ARDL), Systematic Literature Review (PRISMA), dan analisis SROI Value Map.',
+    link: '#scholar-section',
+    linkText: 'Lihat Publikasi Riset ↓',
     statusBadge: '100% Terpenuhi'
   }
 ]
+
+// ── GOOGLE SCHOLAR REPOSITORY (22 ARTICLES) ──────────────
+interface ScholarArticle {
+  title: string
+  authors: string
+  publication: string
+  year: string
+  citations: string
+  link: string
+  badge?: string
+}
+
+const scholarArticles: ScholarArticle[] = [
+  {
+    title: "How Islamic Leadership and Islamic Worldview Play a Role in Restoring a Country's Economic Glory: Bibliometrical Analysis",
+    authors: "AA Susanto, A Suprayitno, S Zulaikha, AK Wardhana",
+    publication: "Jurnal Transformatif (Islamic Studies) 9 (1), 40-56",
+    year: "2025",
+    citations: "13",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:4DMP91E08xMC",
+    badge: "13 Sitasi • SINTA 2"
+  },
+  {
+    title: "Critical assessment of blockchain applications in zakat literature: Lessons for government and future directions",
+    authors: "AA Susanto",
+    publication: "International Journal of Zakat (IJAZ - BAZNAS) 10 (1), 80-98",
+    year: "2025",
+    citations: "9",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:Wp0gIr-vW9MC",
+    badge: "Publikasi IJAZ BAZNAS"
+  },
+  {
+    title: "Digital Transformation in Zakat Management: A Bibliometric Review on the Application of Blockchain Technology",
+    authors: "AA Susanto, N Asya'bani, CF Rizal, M Oktari",
+    publication: "iBAF e-Proceedings 11 (1), 768-790",
+    year: "2024",
+    citations: "9",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:dhFuZR0502QC",
+    badge: "International Proceeding"
+  },
+  {
+    title: "Navigating the future: The impact of AI on Islamic economic policy in the digital age",
+    authors: "N Asya'bani, AA Susanto, SK Indirwan, AB Robani",
+    publication: "Review of Islamic Economics and Finance 8 (1), 125-150",
+    year: "2025",
+    citations: "6",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:mVmsd5A6BfQC",
+    badge: "AI & Islamic Policy"
+  },
+  {
+    title: "Long term nexus between digitalization and macroeconomy on zakat collection in Indonesia",
+    authors: "A Suprayitno, W Hawariyuni, WA Pratomo, WS Hasibuan, M Andrasari, AA Susanto",
+    publication: "Review of Islamic Social Finance and Entrepreneurship, 141-153",
+    year: "2025",
+    citations: "3",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:ZeXyd9-uunAC",
+    badge: "Ekonometrika ARDL"
+  },
+  {
+    title: "Pengaruh Literasi Keuangan dan Pendapatan Perkapita Terhadap Konsumsi Rumah Tangga Di Indonesia: Analisis Ekonomi Islam",
+    authors: "A Wahab, A Suprayitno, AA Susanto, S Rusgianto",
+    publication: "Jurnal Ekonomika dan Bisnis Islam 8 (2), 20-35",
+    year: "2025",
+    citations: "3",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:hFOr9nPyWt4C",
+    badge: "Ekonomi Makro Islam"
+  },
+  {
+    title: "Toward the future of the halal industry: exploring perceptions and halal awareness among poultry slaughterhouse business practitioners",
+    authors: "L Hikmah, TD Pertiwi, M Cholil, AA Susanto, M Soleh, T Widiastuti",
+    publication: "Journal of Halal Product and Research 8 (1), 75-89",
+    year: "2025",
+    citations: "3",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:7PzlFSSx8tAC",
+    badge: "Halal Industry & BPJPH"
+  },
+  {
+    title: "TWO DECADES OF ISLAMIC LEADERSHIP AND ISLAMIC WORK ETHICS IMPLEMENTATION: BIBLIOMETRIC ANALYSIS",
+    authors: "A Suprayitno, AA Susanto, A Wahab",
+    publication: "Jurnal EL-RIYASAH 16 (1), 40-59",
+    year: "2025",
+    citations: "2",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:9ZlFYXVOiuMC",
+    badge: "Bibliometric VOSviewer"
+  },
+  {
+    title: "Sustainability of Islamic Bank Financing across Macroeconomic and Internal Factors",
+    authors: "A Suprayitno, AA Susanto, W Hawariyuni",
+    publication: "Journal of Sustainable Economics 2 (2), 83-93",
+    year: "2024",
+    citations: "2",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:hqOjcs7Dif8C",
+    badge: "Islamic Banking Sustainability"
+  },
+  {
+    title: "A Bibliometric-Systematic Review of Digital Transformation in Indonesia's Economic Development",
+    authors: "AA Susanto, J Lu, A Suprayitno, NH Hadi",
+    publication: "Journal of Advances in Information and Industrial Technology 8 (1), 145-160",
+    year: "2026",
+    citations: "1",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:iH-uZ7U-co4C",
+    badge: "Systematic Review (SLR)"
+  },
+  {
+    title: "Unlocking Amil performance: Leadership, knowledge management capability, and organizational culture",
+    authors: "N Asya'bani, S Rusgianto, RT Ratnasari, MNH Ryandono, AA Susanto",
+    publication: "Asian Journal of Islamic Management (AJIM), 133-153",
+    year: "2025",
+    citations: "1",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:QIV2ME_5wuYC",
+    badge: "Tata Kelola Amil OPZ"
+  },
+  {
+    title: "The Influence of Corporate Social Responsibility on Consumer Happiness and Brand Love",
+    authors: "NH Hadi, HA Al-Giffari, AA Susanto",
+    publication: "IJBEG: International Journal of Business and Economic Growth 1 (01), 78-99",
+    year: "2026",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:NMxIlDl6LWMC",
+    badge: "CSR & Social Impact"
+  },
+  {
+    title: "Islamic Financial Regulations, Islamic Financial Literacy and Financial Inclusion: Insights from ASEAN",
+    authors: "AA Susanto, S Rusgianto, T Widiastuti",
+    publication: "SAUJANA: Jurnal Perbankan Syariah dan Ekonomi Syariah 8 (3), 606-630",
+    year: "2026",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:hMod-77fHWUC",
+    badge: "Regulasi Finansial ASEAN"
+  },
+  {
+    title: "The Anthropology of Modernity: Four Lessons from Surah Al-Kahf",
+    authors: "AA Susanto",
+    publication: "Center of Islamic Social Finance (CISF) Academic Notes",
+    year: "2026",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:maZDTaKrznsC",
+    badge: "Islamic Worldview"
+  },
+  {
+    title: "Stabilitas Bank Syariah Vs Bank Konvensional: Mana Yang Lebih Tangguh?",
+    authors: "AR Rafli, AF Hady, R Indrarini, AA Susanto",
+    publication: "WADIAH 10 (2), 90-114",
+    year: "2026",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:isC4tDSrTZIC",
+    badge: "Stabilitas Perbankan"
+  },
+  {
+    title: "Pengaruh Zakat terhadap Pertumbuhan Ekonomi di Negara-Negara OKI: Peran Moderasi Kualitas Institusi dan Tantangan Digitalisasi",
+    authors: "AA Susanto, S Rusgianto, T Widiastuti",
+    publication: "SAUJANA: Jurnal Perbankan Syariah dan Ekonomi Syariah 8 (1), 197-213",
+    year: "2026",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:j3f4tGmQtD8C",
+    badge: "Zakat Makro OKI"
+  },
+  {
+    title: "MISSION-DRIVEN HRM IN NON-PROFIT ORGANISATION: A SYSTEMATIC REVIEW OF PLANNING PRACTICES AND CHALLENGES",
+    authors: "BNM Ulum, T Widiastuti, A Prasetyo, A Athallah",
+    publication: "Airlangga International Journal of Islamic Economics & Finance 9 (1), 1",
+    year: "2026",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:bEWYMUwI8FkC",
+    badge: "HRM Lembaga Nirlaba"
+  },
+  {
+    title: "PENGARUH HUMAN CAPITAL, ECONOMIC FREEDOM, DAN CAPITAL FORMATION TERHADAP PEMBANGUNAN EKONOMI ISLAM DI NEGARA-NEGARA OKI",
+    authors: "S Indirwan, AA Susanto, S Herianingrum, T Widiastuti, AB Robani",
+    publication: "Jurnal Ekonomika dan Bisnis Islam 8 (3), 1-23",
+    year: "2025",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:_Qo2XoVZTnwC",
+    badge: "Pembangunan Ekonomi OKI"
+  },
+  {
+    title: "What Islamic Economics Can Teach the West About Fiscal Trust",
+    authors: "AA Susanto",
+    publication: "CISF Working Paper & International Public Economics Series",
+    year: "2025",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:qUcmZB5y_30C",
+    badge: "Fiscal Trust & Ethics"
+  },
+  {
+    title: "Faktor-Faktor Yang Menyebabkan Herding Behavior Di Kalangan Investor Saham Syariah Indonesia",
+    authors: "AA Susanto",
+    publication: "Skripsi Sarjana Ekonomi Islam, Universitas Airlangga",
+    year: "2022",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:k_IJM867U9cC",
+    badge: "Skripsi Cum Laude S1"
+  },
+  {
+    title: "From Readiness to Performance: Examining Blockchain Integration in Financial Services and Its Effects on Transparency and Efficiency",
+    authors: "A Alsmadi, RW Al-Smadi (Peer-Reviewed: AA Susanto)",
+    publication: "Frontiers in Blockchain 9, 1891070",
+    year: "2026",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:blknAaTinKkC",
+    badge: "Frontiers Peer Reviewer"
+  },
+  {
+    title: "Algorithmic Trust and the Future of Money: A Dynamic General Equilibrium Framework for AI-Governed Digital Currencies",
+    authors: "AA Susanto",
+    publication: "Theoretical Working Paper in Computational Economics",
+    year: "2026",
+    citations: "0",
+    link: "https://scholar.google.com/citations?view_op=view_citation&hl=id&oe=ASCII&user=7gI4mGYAAAAJ&pagesize=100&citation_for_view=7gI4mGYAAAAJ:TQgYirikUcIC",
+    badge: "AI & Computational Macro"
+  }
+]
+
+const searchQuery = ref('')
+const scholarCategory = ref('Semua')
+
+const filteredScholarArticles = computed(() => {
+  return scholarArticles.filter(art => {
+    const matchSearch = art.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+                        art.authors.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+                        art.publication.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+                        art.year.includes(searchQuery.value)
+    
+    if (scholarCategory.value === 'Semua') return matchSearch
+    if (scholarCategory.value === 'Zakat & ZISWAF') {
+      return matchSearch && (art.title.toLowerCase().includes('zakat') || art.badge?.toLowerCase().includes('zakat') || art.title.toLowerCase().includes('amil'))
+    }
+    if (scholarCategory.value === 'Blockchain & AI') {
+      return matchSearch && (art.title.toLowerCase().includes('blockchain') || art.title.toLowerCase().includes('ai') || art.title.toLowerCase().includes('digital'))
+    }
+    if (scholarCategory.value === 'Perbankan & Sukuk') {
+      return matchSearch && (art.title.toLowerCase().includes('bank') || art.title.toLowerCase().includes('financial') || art.title.toLowerCase().includes('sustainability'))
+    }
+    if (scholarCategory.value === 'Halal Industry') {
+      return matchSearch && (art.title.toLowerCase().includes('halal') || art.badge?.toLowerCase().includes('halal'))
+    }
+    return matchSearch
+  })
+})
+
+const verticalCarouselRef = ref<HTMLElement | null>(null)
+
+function scrollCarousel(direction: 'up' | 'down') {
+  if (!verticalCarouselRef.value) return
+  const scrollAmount = 280
+  verticalCarouselRef.value.scrollBy({
+    top: direction === 'down' ? scrollAmount : -scrollAmount,
+    behavior: 'smooth'
+  })
+}
 </script>
 
 <template>
@@ -404,8 +569,8 @@ const jobMatrix = [
         </h1>
 
         <p class="hero-description">
-          Dokumentasi karya ilmiah, publikasi <strong>International Journal of Zakat (IJAZ)</strong>, 
-          materi presentasi eksekutif pimpinan, serta matriks pemenuhan kualifikasi 
+          Dokumentasi karya ilmiah, <strong>22+ Publikasi Google Scholar</strong>, materi presentasi eksekutif pimpinan, 
+          pengelolaan OJS <strong>Journal MASEI Al-Khawarizmi</strong>, serta pemenuhan kualifikasi 
           <strong>Staf Riset dan Kajian Pengembangan BAZNAS RI</strong> oleh 
           <strong>Arva Athallah Susanto, S.EI., M.SEI</strong>.
         </p>
@@ -431,13 +596,16 @@ const jobMatrix = [
           <a href="#job-matrix" class="baznas-btn secondary">
             📋 Matriks Kualifikasi BAZNAS RI
           </a>
+          <a href="#scholar-section" class="baznas-btn secondary">
+            📚 22+ Publikasi Google Scholar ↓
+          </a>
         </div>
 
         <!-- Metric Highlight Bar -->
         <div class="metric-ribbon">
           <div class="metric-item">
-            <span class="metric-number">IJAZ</span>
-            <span class="metric-label">Publikasi Terindeks BAZNAS</span>
+            <span class="metric-number">22+</span>
+            <span class="metric-label">Publikasi Google Scholar</span>
           </div>
           <div class="metric-sep"></div>
           <div class="metric-item">
@@ -446,13 +614,13 @@ const jobMatrix = [
           </div>
           <div class="metric-sep"></div>
           <div class="metric-item">
-            <span class="metric-number">CISF &amp; MES</span>
-            <span class="metric-label">Kolaborasi Lembaga &amp; Industri</span>
+            <span class="metric-number">OJS 3.4</span>
+            <span class="metric-label">Redaksi Journal MASEI Al-Khawarizmi</span>
           </div>
           <div class="metric-sep"></div>
           <div class="metric-item">
-            <span class="metric-number">SROI &amp; ZCP</span>
-            <span class="metric-label">Metodologi Kaji Dampak ZISWAF</span>
+            <span class="metric-number">IJAZ</span>
+            <span class="metric-label">Penulis Jurnal Resmi BAZNAS</span>
           </div>
         </div>
       </div>
@@ -608,7 +776,7 @@ const jobMatrix = [
         <p class="section-kicker">Position Competency Match</p>
         <h2>Matriks Kesesuaian Kualifikasi BAZNAS RI</h2>
         <p class="section-sub">
-          Pemetaan kompetensi akademik, penguasaan materi pimpinan, dan portofolio Arva Athallah Susanto terhadap 
+          Pemetaan kompetensi akademik, penguasaan materi pimpinan, pengelolaan infrastruktur OJS, dan portofolio Arva Athallah Susanto terhadap 
           kebutuhan formasi <strong>Staf Riset dan Kajian Pengembangan — BAZNAS RI</strong>.
         </p>
       </div>
@@ -624,74 +792,114 @@ const jobMatrix = [
             <strong>Bukti Portofolio &amp; Rekam Jejak:</strong>
             <p>{{ item.evidence }}</p>
           </div>
+          <div class="mc-footer">
+            <a :href="item.link" target="_blank" class="mc-link">{{ item.linkText }}</a>
+          </div>
         </article>
       </div>
     </section>
 
-    <!-- ── RESEARCH PUBLICATIONS SECTION ── -->
-    <section id="research-catalog" class="baznas-section">
+    <!-- ── VERTICAL SCHOLAR CAROUSEL SECTION (22+ ARTICLES) ── -->
+    <section id="scholar-section" class="baznas-section">
       <div class="section-head">
-        <p class="section-kicker">Publications &amp; Working Papers</p>
-        <h2>Katalog Publikasi &amp; Analisis Ilmiah</h2>
+        <p class="section-kicker">Google Scholar Academic Repository</p>
+        <h2>Koleksi 22+ Publikasi Ilmiah Google Scholar</h2>
         <p class="section-sub">
-          Daftar karya ilmiah, publikasi jurnal terakreditasi BAZNAS, dan kajian strategis pengelolaan zakat nasional.
+          Daftar lengkap artikel jurnal, prosiding internasional, dan working paper karya 
+          <strong>Arva Athallah Susanto</strong> yang terindeks resmi di Google Scholar.
         </p>
       </div>
 
-      <!-- Category Filter Pills -->
-      <div class="filter-bar">
-        <button
-          v-for="cat in categories"
-          :key="cat"
-          class="filter-pill"
-          :class="{ active: activeFilter === cat }"
-          @click="activeFilter = cat"
-        >
-          {{ cat }}
-        </button>
+      <!-- Search & Category Filters -->
+      <div class="scholar-controls-wrap">
+        <div class="scholar-search-box">
+          <span class="search-icon">🔍</span>
+          <input
+            v-model="searchQuery"
+            type="text"
+            placeholder="Cari judul artikel, penulis, atau kata kunci..."
+            class="scholar-input"
+          />
+          <button v-if="searchQuery" class="clear-search" @click="searchQuery = ''">✕</button>
+        </div>
+
+        <div class="scholar-filter-pills">
+          <button
+            v-for="cat in ['Semua', 'Zakat & ZISWAF', 'Blockchain & AI', 'Perbankan & Sukuk', 'Halal Industry']"
+            :key="cat"
+            class="filter-pill"
+            :class="{ active: scholarCategory === cat }"
+            @click="scholarCategory = cat"
+          >
+            {{ cat }}
+          </button>
+        </div>
       </div>
 
-      <!-- Research Cards Grid -->
-      <div class="research-grid">
-        <article
-          v-for="item in filteredItems"
-          :key="item.id"
-          class="research-card"
-        >
-          <div class="rc-header">
-            <div class="rc-meta">
-              <span class="rc-badge">{{ item.badge }}</span>
-              <span class="rc-year">📅 {{ item.year }}</span>
+      <!-- Vertical Carousel Container -->
+      <div class="vertical-carousel-wrapper">
+        <!-- Floating Navigation Arrow Controls -->
+        <div class="vc-header-bar">
+          <div class="vc-stat">
+            Menampilkan <strong>{{ filteredScholarArticles.length }}</strong> dari <strong>{{ scholarArticles.length }}</strong> Publikasi
+          </div>
+          <div class="vc-nav-btns">
+            <button class="vc-nav-btn" @click="scrollCarousel('up')" title="Scroll ke Atas">▲ Atas</button>
+            <button class="vc-nav-btn" @click="scrollCarousel('down')" title="Scroll ke Bawah">▼ Bawah</button>
+          </div>
+        </div>
+
+        <!-- Scrollable Vertical Feed (Carousel Kebawah) -->
+        <div ref="verticalCarouselRef" class="vertical-carousel-feed">
+          <article
+            v-for="(art, aIdx) in filteredScholarArticles"
+            :key="art.link + aIdx"
+            class="scholar-feed-card"
+          >
+            <div class="sfc-meta-row">
+              <span class="sfc-index">#{{ aIdx + 1 }}</span>
+              <span v-if="art.badge" class="sfc-badge">{{ art.badge }}</span>
+              <span v-if="art.year" class="sfc-year">📅 {{ art.year }}</span>
+              <span v-if="art.citations !== '0'" class="sfc-cites">⭐ {{ art.citations }} Sitasi</span>
             </div>
-            <span class="rc-publisher">{{ item.publisher }}</span>
-          </div>
 
-          <h3 class="rc-title">{{ item.title }}</h3>
-          <p class="rc-excerpt">{{ item.excerpt }}</p>
+            <h3 class="sfc-title">
+              <a :href="art.link" target="_blank" rel="noopener noreferrer">
+                {{ art.title }}
+              </a>
+            </h3>
 
-          <div class="rc-methodology">
-            <strong>Metodologi:</strong> {{ item.methodology }}
-          </div>
+            <p class="sfc-authors">
+              👥 <strong>Penulis:</strong> {{ art.authors }}
+            </p>
 
-          <div class="rc-findings">
-            <h4>Temuan Kunci &amp; Rekomendasi:</h4>
-            <ul>
-              <li v-for="(finding, fIdx) in item.findings" :key="fIdx">
-                {{ finding }}
-              </li>
-            </ul>
-          </div>
+            <p v-if="art.publication" class="sfc-pub">
+              📖 <strong>Jurnal / Prosiding:</strong> {{ art.publication }}
+            </p>
 
-          <div class="rc-tags">
-            <span v-for="tag in item.tags" :key="tag" class="rc-tag">#{{ tag }}</span>
-          </div>
+            <div class="sfc-footer">
+              <a :href="art.link" target="_blank" rel="noopener noreferrer" class="sfc-link">
+                Buka Sitasi di Google Scholar ➔
+              </a>
+            </div>
+          </article>
+        </div>
 
-          <div v-if="item.link" class="rc-footer">
-            <a :href="item.link" target="_blank" rel="noopener noreferrer" class="rc-link">
-              {{ item.linkText || 'Lihat Sumber Publikasi →' }}
-            </a>
+        <!-- Scholar External Link Bar -->
+        <div class="vc-bottom-bar">
+          <div class="vcb-text">
+            <span>Profil Google Scholar Resmi Arva Athallah Susanto:</span>
+            <strong>Citations: 44+ | H-Index: 4 | i10-Index: 2</strong>
           </div>
-        </article>
+          <a
+            href="https://scholar.google.com/citations?user=7gI4mGYAAAAJ&hl=id"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-scholar-profile"
+          >
+            🎓 Buka Profil Lengkap Google Scholar →
+          </a>
+        </div>
       </div>
     </section>
 
@@ -701,7 +909,7 @@ const jobMatrix = [
         <span class="hero-badge live-badge">KOLABORASI &amp; REKRUTMEN BAZNAS RI</span>
         <h2>Siap Berkontribusi Nyata bagi Kemajuan Riset BAZNAS RI</h2>
         <p>
-          Memiliki dedikasi tinggi untuk memperkuat tata kelola zakat nasional, pengelolaan jurnal IJAZ, 
+          Memiliki dedikasi tinggi untuk memperkuat tata kelola zakat nasional, pengelolaan OJS &amp; jurnal IJAZ, 
           serta penyusunan materi kebijakan pimpinan berbasis riset empiris dan teknologi mutakhir.
         </p>
 
@@ -709,17 +917,11 @@ const jobMatrix = [
           <NuxtLink to="/contact" class="baznas-btn primary">
             Hubungi Arva Athallah →
           </NuxtLink>
-          <a href="/documents/islamic-economics-resilience-welfare-arva.pdf" download class="baznas-btn secondary">
-            📥 Download Materi 1 PDF
+          <a href="https://journal.masei.or.id/al-khawarizmi/about/contact" target="_blank" class="baznas-btn secondary">
+            🌐 Redaksi OJS Journal MASEI
           </a>
-          <a href="/documents/program-pemberdayaan-terukur-cisf-arva.pdf" download class="baznas-btn secondary">
-            📥 Download Materi 2 PDF
-          </a>
-          <a href="/documents/gaya-hidup-halal-mes-arva.pdf" download class="baznas-btn secondary">
-            📥 Download Materi 3 PDF
-          </a>
-          <a href="/documents/pentingnya-ketenangan-hati-arva.pdf" download class="baznas-btn secondary">
-            📥 Download Materi 4 PDF
+          <a href="https://scholar.google.com/citations?user=7gI4mGYAAAAJ&hl=id" target="_blank" class="baznas-btn secondary">
+            🎓 Google Scholar Profile
           </a>
         </div>
       </div>
@@ -919,7 +1121,7 @@ const jobMatrix = [
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
   margin-bottom: 48px;
 }
@@ -928,9 +1130,9 @@ const jobMatrix = [
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 28px;
+  padding: 12px 24px;
   border-radius: 12px;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1526,23 +1728,89 @@ const jobMatrix = [
   margin: 0;
 }
 
-/* ── FILTER & RESEARCH SECTION ──────────────────────── */
-.filter-bar {
+.mc-footer {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.mc-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: #059669;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mc-link:hover {
+  color: #047857;
+  text-decoration: underline;
+}
+
+/* ── VERTICAL SCHOLAR CAROUSEL SECTION ──────────────── */
+.scholar-controls-wrap {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
   align-items: center;
-  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto 36px;
+}
+
+.scholar-search-box {
+  position: relative;
+  width: 100%;
+}
+
+.scholar-search-box .search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.scholar-input {
+  width: 100%;
+  padding: 14px 44px 14px 46px;
+  border-radius: 999px;
+  border: 1.5px solid #cbd5e1;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.scholar-input:focus {
+  border-color: #059669;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+.clear-search {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.scholar-filter-pills {
+  display: flex;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  gap: 8px;
+  justify-content: center;
 }
 
 .filter-pill {
-  padding: 8px 20px;
+  padding: 6px 18px;
   border-radius: 999px;
   border: 1px solid #cbd5e1;
   background: #ffffff;
   color: #475569;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -1560,145 +1828,217 @@ const jobMatrix = [
   box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
 }
 
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 28px;
-}
-
-.research-card {
+.vertical-carousel-wrapper {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: 1.5px solid #e2e8f0;
   border-radius: 24px;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
 }
 
-.research-card:hover {
-  transform: translateY(-6px);
-  border-color: #10b981;
-  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.1);
+.vc-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 13px;
+  color: #475569;
 }
 
-.rc-header {
+.vc-header-bar strong {
+  color: #0f172a;
+}
+
+.vc-nav-btns {
   display: flex;
-  flex-direction: column;
   gap: 8px;
 }
 
-.rc-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.vc-nav-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.rc-badge {
+.vc-nav-btn:hover {
+  background: #059669;
+  color: #ffffff;
+  border-color: #059669;
+}
+
+/* Vertical Scrolling Feed Container */
+.vertical-carousel-feed {
+  max-height: 620px;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #fafbfc;
+  scroll-behavior: smooth;
+}
+
+.scholar-feed-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+}
+
+.scholar-feed-card:hover {
+  transform: translateX(4px);
+  border-color: #10b981;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.1);
+}
+
+.sfc-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sfc-index {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.sfc-badge {
   font-family: var(--font-mono, monospace);
   font-size: 11px;
   font-weight: 800;
   color: #047857;
   background: #d1fae5;
-  padding: 4px 10px;
+  padding: 3px 10px;
   border-radius: 6px;
   text-transform: uppercase;
 }
 
-.rc-year {
+.sfc-year {
   font-size: 12px;
   font-weight: 600;
   color: #64748b;
 }
 
-.rc-publisher {
-  font-size: 12px;
-  font-weight: 700;
-  color: #0284c7;
-}
-
-.rc-title {
-  font-family: var(--font-display, serif);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: #0f172a;
-  margin: 0;
-}
-
-.rc-excerpt {
-  font-size: 14px;
-  color: #475569;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.rc-methodology {
-  font-size: 13px;
-  color: #334155;
-  background: #f1f5f9;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border-left: 3px solid #059669;
-}
-
-.rc-findings {
-  font-size: 13px;
-  color: #334155;
-}
-
-.rc-findings h4 {
-  font-size: 13px;
-  font-weight: 700;
-  margin: 0 0 6px 0;
-  color: #0f172a;
-}
-
-.rc-findings ul {
-  margin: 0;
-  padding-left: 20px;
-  line-height: 1.55;
-}
-
-.rc-findings li {
-  margin-bottom: 4px;
-}
-
-.rc-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: auto;
-  padding-top: 10px;
-}
-
-.rc-tag {
+.sfc-cites {
   font-family: var(--font-mono, monospace);
   font-size: 11px;
-  color: #059669;
-  background: #ecfdf5;
-  padding: 3px 8px;
+  font-weight: 800;
+  color: #b45309;
+  background: #fef3c7;
+  padding: 2px 8px;
   border-radius: 6px;
 }
 
-.rc-footer {
-  padding-top: 14px;
-  border-top: 1px solid #f1f5f9;
+.sfc-title {
+  font-family: var(--font-display, serif);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
 }
 
-.rc-link {
-  font-size: 13px;
-  font-weight: 700;
-  color: #059669;
+.sfc-title a {
+  color: #0f172a;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.rc-link:hover {
+.sfc-title a:hover {
+  color: #059669;
+}
+
+.sfc-authors {
+  font-size: 13px;
+  color: #475569;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.sfc-pub {
+  font-size: 12.5px;
+  color: #0284c7;
+  margin: 0;
+  font-style: italic;
+}
+
+.sfc-footer {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.sfc-link {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #059669;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.sfc-link:hover {
   color: #047857;
   text-decoration: underline;
+}
+
+.vc-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: #0f172a;
+  color: #ffffff;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.vcb-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.vcb-text strong {
+  color: #34d399;
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+}
+
+.btn-scholar-profile {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+}
+
+.btn-scholar-profile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.6);
 }
 
 /* ── CTA SECTION ────────────────────────────────────── */
