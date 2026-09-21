@@ -151,12 +151,29 @@ const apps = [
     featured: false,
     tags: ['Journal', 'Academic', 'Publication', 'Research'],
   },
+  {
+    id: 'baznas-portfolio',
+    number: '09',
+    emoji: '🏛️',
+    label: 'ZISWAF Portfolio',
+    name: 'BAZNAS Portfolio',
+    fullName: 'Portofolio Riset & Transformasi Digital BAZNAS',
+    tagline: 'ZISWAF, Blockchain & Empirical Research',
+    description: 'Dokumentasi riset empiris, publikasi IJAZ BAZNAS, pemodelan ekonometrika zakat makro, dan integrasi blockchain dalam pengelolaan zakat nasional.',
+    url: 'https://www.arva-as.my.id/portfolio-baznas',
+    internalRoute: '/portfolio-baznas',
+    color: '#059669',
+    colorDark: '#047857',
+    featured: true,
+    tags: ['BAZNAS', 'IJAZ', 'Blockchain', 'ZISWAF', 'Economics'],
+  },
 ]
 
 // Ticker items — duplicated for infinite loop
 const tickerItems = [
   { abbr: 'ARVERSE', full: 'Augmented Reality Quranic Verse', emoji: '🌌', color: '#3b82f6', url: 'https://arverse.vercel.app/' },
   { abbr: 'PODGE', full: 'Podge-Ecosystem', emoji: '🧩', color: '#8b5cf6', url: 'https://podge-ecosystem.vercel.app' },
+  { abbr: 'BAZNAS RISIL', full: 'Portofolio Riset BAZNAS & IJAZ', emoji: '🏛️', color: '#059669', url: 'https://www.arva-as.my.id/portfolio-baznas' },
   { abbr: 'GMAE', full: 'General Model Algorithmic Equilibrium', emoji: '⚙️', color: '#10b981', url: 'https://gmae-zeta.vercel.app' },
   { abbr: 'KOPDES API', full: 'Kopdes AI Backend Server', emoji: '🤖', color: '#ec4899', url: 'https://www.arva-as.my.id/kopdes-ai-backend' },
   { abbr: 'AKSA BRIN', full: 'AKSARA Keuangan Syariah', emoji: '💼', color: '#f59e0b', url: 'https://www.arva-as.my.id/aksa-brin' },
@@ -165,6 +182,7 @@ const tickerItems = [
   { abbr: 'VIJ JOURNAL', full: 'VIJ Journal Platform', emoji: '📓', color: '#14b8a6', url: 'https://www.arva-as.my.id/vij-journal' },
   { abbr: 'ARVERSE', full: 'Augmented Reality Quranic Verse', emoji: '🌌', color: '#3b82f6', url: 'https://arverse.vercel.app/' },
   { abbr: 'PODGE', full: 'Podge-Ecosystem', emoji: '🧩', color: '#8b5cf6', url: 'https://podge-ecosystem.vercel.app' },
+  { abbr: 'BAZNAS RISIL', full: 'Portofolio Riset BAZNAS & IJAZ', emoji: '🏛️', color: '#059669', url: 'https://www.arva-as.my.id/portfolio-baznas' },
   { abbr: 'GMAE', full: 'General Model Algorithmic Equilibrium', emoji: '⚙️', color: '#10b981', url: 'https://gmae-zeta.vercel.app' },
   { abbr: 'KOPDES API', full: 'Kopdes AI Backend Server', emoji: '🤖', color: '#ec4899', url: 'https://www.arva-as.my.id/kopdes-ai-backend' },
   { abbr: 'AKSA BRIN', full: 'AKSARA Keuangan Syariah', emoji: '💼', color: '#f59e0b', url: 'https://www.arva-as.my.id/aksa-brin' },

@@ -36,9 +36,14 @@
           terkait Zakat, Infaq, Sadaqah, dan Waqf.
         </p>
 
-        <NuxtLink to="/writings" class="portfolio-btn">
-          View Academic Writings →
-        </NuxtLink>
+        <div class="highlight-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <NuxtLink to="/portfolio-baznas" class="portfolio-btn" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);">
+            🏛️ BAZNAS Portfolio & Riset →
+          </NuxtLink>
+          <NuxtLink to="/writings" class="portfolio-btn secondary">
+            View Academic Writings →
+          </NuxtLink>
+        </div>
       </div>
 
       <div class="highlight-right">
@@ -80,9 +85,14 @@
             pengembangan akademik Arva di bidang Islamic Economics dan Islamic
             Social Finance.
           </p>
-          <NuxtLink to="/writings" class="portfolio-link">
-            Read related writings →
-          </NuxtLink>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px;">
+            <NuxtLink to="/portfolio-baznas" class="portfolio-link" style="color: #059669; font-weight: 700;">
+              Lihat Portofolio BAZNAS →
+            </NuxtLink>
+            <NuxtLink to="/writings" class="portfolio-link">
+              Read related writings →
+            </NuxtLink>
+          </div>
         </article>
 
         <article class="portfolio-card">
