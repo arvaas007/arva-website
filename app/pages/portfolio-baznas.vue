@@ -280,9 +280,9 @@ const jobMatrix = [
   {
     number: '04',
     roleTask: 'Mengelola jurnal IJAZ (International Journal of Zakat) & Pengelolaan Jurnal Ilmiah OJS',
-    evidence: 'Tim Redaksi (Editorial Office & IT Infrastructure) di Journal MASEI Al-Khawarizmi (journal.masei.or.id), bertanggung jawab penuh memastikan infrastruktur server, OJS 3.4.0.8, alur peer-review, submission, dan OJS berjalan dengan sempurna. Sekaligus merupakan penulis aktif di International Journal of Zakat (IJAZ - BAZNAS).',
-    link: 'https://journal.masei.or.id/al-khawarizmi/about/contact',
-    linkText: 'Cek SK & Kontak Redaksi OJS MASEI →',
+    evidence: 'Tim Redaksi (Principal Editorial Office & IT Infrastructure Manager) di Journal MASEI Al-Khawarizmi (journal.masei.or.id), bertanggung jawab penuh atas kelancaran infrastruktur server, OJS 3.4.0.8, alur peer-review, submission, serta kaidah penerbitan ilmiah. Sekaligus merupakan penulis aktif di International Journal of Zakat (IJAZ - BAZNAS).',
+    link: '#ojs-showcase',
+    linkText: '🖼️ Lihat Pigura Bukti Pengelola OJS MASEI ↓',
     statusBadge: '100% Terpenuhi'
   },
   {
@@ -533,6 +533,16 @@ const filteredScholarArticles = computed(() => {
     return matchSearch
   })
 })
+
+const isProofModalOpen = ref(false)
+
+function openProofModal() {
+  isProofModalOpen.value = true
+}
+
+function closeProofModal() {
+  isProofModalOpen.value = false
+}
 
 const verticalCarouselRef = ref<HTMLElement | null>(null)
 
@@ -798,6 +808,167 @@ function scrollCarousel(direction: 'up' | 'down') {
         </article>
       </div>
     </section>
+
+    <!-- ── PIGURA BUKTI PENGELOLA JURNAL OJS MASEI & IJAZ SECTION ── -->
+    <section id="ojs-showcase" class="baznas-section pigura-section">
+      <div class="section-head">
+        <p class="section-kicker">Verified Editorial &amp; IT Infrastructure</p>
+        <h2>Pigura Bukti Pengelola Jurnal Ilmiah (OJS MASEI)</h2>
+        <p class="section-sub">
+          Dokumentasi resmi penetapan <strong>Arva Athallah Susanto, S.EI., M.SEI</strong> sebagai 
+          <strong>Kontak Utama (Principal Editorial Office)</strong> dan Penanggung Jawab Infrastruktur IT 
+          <strong>Open Journal Systems (OJS 3.4.0.8)</strong> pada 
+          <strong>Journal MASEI Al-Khawarizmi</strong> (Majelis Sarjana Ekonomi Islam) serta kontributor 
+          <strong>International Journal of Zakat (IJAZ - BAZNAS RI)</strong>.
+        </p>
+      </div>
+
+      <!-- THE ACADEMIC PIGURA FRAME -->
+      <div class="pigura-showcase-wrap">
+        <div class="pigura-academic-frame">
+          <!-- Gilded Plaque Header -->
+          <div class="pigura-plaque-bar">
+            <div class="ppb-left">
+              <span class="ppb-seal">🏛️</span>
+              <div class="ppb-titles">
+                <span class="ppb-org">Majelis Sarjana Ekonomi Islam (MASEI)</span>
+                <span class="ppb-name">Al Khawarizmi: Journal of Islamic Economics and Financial Development</span>
+              </div>
+            </div>
+            <div class="ppb-right">
+              <span class="ppb-badge">✓ Verified Editorial Proof</span>
+            </div>
+          </div>
+
+          <!-- Browser / Mockup Window Frame -->
+          <div class="pigura-browser-mockup">
+            <div class="pbm-topbar">
+              <div class="pbm-dots">
+                <span class="pbm-dot red"></span>
+                <span class="pbm-dot yellow"></span>
+                <span class="pbm-dot green"></span>
+              </div>
+              <div class="pbm-url-pill">
+                <span class="pbm-lock">🔒</span>
+                <span class="pbm-url">https://journal.masei.or.id/al-khawarizmi/about/contact</span>
+              </div>
+              <button class="btn-zoom-hint" @click="openProofModal" title="Klik untuk memperbesar bukti">
+                🔍 Perbesar
+              </button>
+            </div>
+
+            <!-- Image Container with Clickable Lightbox Trigger -->
+            <div class="pigura-canvas" @click="openProofModal">
+              <div class="canvas-img-overlay">
+                <span class="cio-badge">🔍 Klik untuk Perbesar Resolusi Penuh</span>
+              </div>
+              <img
+                src="/images/masei-ojs-editorial-proof.png"
+                alt="Bukti Resmi Kontak Utama dan Redaksi OJS Journal MASEI Al-Khawarizmi - Arva Athallah Susanto"
+                class="pigura-screenshot"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Frame Lower Caption & Verified Identity Details -->
+            <div class="pigura-caption-bar">
+              <div class="pcb-identity">
+                <div class="pcb-avatar">👤</div>
+                <div class="pcb-info">
+                  <h4>Arva Athallah Susanto, S.EI., M.SEI</h4>
+                  <p class="pcb-role">
+                    <strong>Kontak Utama (Principal Contact)</strong> — Editorial Office, Majelis Sarjana Ekonomi Islam Journal
+                  </p>
+                  <p class="pcb-email">
+                    ✉️ Email Resmi: <a href="mailto:editor@masei.or.id">editor@masei.or.id</a>
+                  </p>
+                </div>
+              </div>
+              <div class="pcb-actions">
+                <a
+                  href="https://journal.masei.or.id/al-khawarizmi/about/contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-pigura-link primary"
+                >
+                  🌐 Kunjungi Laman Kontak MASEI ➔
+                </a>
+                <button class="btn-pigura-link outline" @click="openProofModal">
+                  🔍 Lihat Bukti Fullscreen
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Core Pillars of Journal Management & IT -->
+        <div class="editorial-capabilities-grid">
+          <div class="ec-card">
+            <div class="ec-icon">🖥️</div>
+            <h3>Infrastruktur OJS &amp; Server</h3>
+            <p>
+              Pengelolaan mandiri Linux Server, optimasi database MariaDB/MySQL, instalasi &amp; upgrade 
+              <strong>OJS 3.4.0.8 LTS</strong>, backup berkala, dan keamanan sistem informasi penerbitan.
+            </p>
+          </div>
+
+          <div class="ec-card">
+            <div class="ec-icon">📋</div>
+            <h3>Alur Editorial &amp; Peer-Review</h3>
+            <p>
+              Mengorkestrasikan alur naskah sejak submit, penugasan Section Editor, double-blind peer review, 
+              revisi author, copyediting, hingga layouting galley PDF/XML sesuai kaidah ilmiah.
+            </p>
+          </div>
+
+          <div class="ec-card">
+            <div class="ec-icon">🔍</div>
+            <h3>Integritas &amp; Anti-Plagiarisme</h3>
+            <p>
+              Screening similaritas menggunakan Turnitin/iThenticate, standardisasi referensi Mendeley/Zotero 
+              (APA 7th), serta integrasi identifikasi digital Crossref DOI dan ORCID.
+            </p>
+          </div>
+
+          <div class="ec-card">
+            <div class="ec-icon">📈</div>
+            <h3>Indeksasi &amp; IJAZ BAZNAS RI</h3>
+            <p>
+              Kesiapan akreditasi SINTA &amp; DOAJ, serta sinergi publikasi ilmiah pada 
+              <strong>International Journal of Zakat (IJAZ)</strong> BAZNAS RI dengan sitasi internasional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL DIALOG FOR FULL-SIZE PROOF VIEW -->
+    <Teleport to="body">
+      <div v-if="isProofModalOpen" class="proof-modal-backdrop" @click="closeProofModal">
+        <div class="proof-modal-card" @click.stop>
+          <div class="pm-head">
+            <div class="pm-title-group">
+              <span class="pm-badge">🏛️ BUKTI RESMI REDAKSI OJS</span>
+              <h3>Laman Kontak Resmi Redaksi Journal MASEI Al-Khawarizmi</h3>
+            </div>
+            <button class="pm-close-btn" @click="closeProofModal" aria-label="Tutup">✕</button>
+          </div>
+          <div class="pm-body">
+            <img
+              src="/images/masei-ojs-editorial-proof.png"
+              alt="Bukti Kontak Utama OJS MASEI Al Khawarizmi Arva Athallah Susanto"
+              class="pm-full-image"
+            />
+          </div>
+          <div class="pm-foot">
+            <p>
+              📍 <em>Tercatat sebagai <strong>Kontak Utama (Principal Contact)</strong> pada sistem OJS MASEI (<a href="https://journal.masei.or.id/al-khawarizmi/about/contact" target="_blank" class="pm-link">journal.masei.or.id</a>).</em>
+            </p>
+            <button class="baznas-btn primary sm" @click="closeProofModal">Tutup Pratinjau</button>
+          </div>
+        </div>
+      </div>
+    </Teleport>
 
     <!-- ── VERTICAL SCHOLAR CAROUSEL SECTION (22+ ARTICLES) ── -->
     <section id="scholar-section" class="baznas-section">
@@ -2077,4 +2248,514 @@ function scrollCarousel(direction: 'up' | 'down') {
   gap: 12px;
   flex-wrap: wrap;
 }
+
+/* ── PIGURA PENGELOLA JURNAL OJS MASEI STYLES ───────── */
+.pigura-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 50%, #ffffff 100%);
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.pigura-showcase-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.pigura-academic-frame {
+  position: relative;
+  background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #065f46 100%);
+  border: 4px solid #b45309;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 
+    0 0 0 4px #fef3c7,
+    0 25px 60px -12px rgba(6, 78, 59, 0.35),
+    inset 0 2px 6px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pigura-academic-frame:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 0 4px #fde68a,
+    0 30px 70px -10px rgba(6, 78, 59, 0.45),
+    inset 0 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+.pigura-plaque-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px 16px;
+  color: #ffffff;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ppb-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ppb-seal {
+  font-size: 28px;
+  background: rgba(255, 255, 255, 0.12);
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(253, 230, 138, 0.4);
+}
+
+.ppb-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.ppb-org {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fde68a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ppb-name {
+  font-family: var(--font-display, serif);
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.ppb-badge {
+  background: rgba(16, 185, 129, 0.25);
+  color: #6ee7b7;
+  border: 1px solid rgba(110, 231, 183, 0.4);
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pigura-browser-mockup {
+  background: #0f172a;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.pbm-topbar {
+  background: #1e293b;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #334155;
+}
+
+.pbm-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.pbm-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.pbm-dot.red { background: #ef4444; }
+.pbm-dot.yellow { background: #f59e0b; }
+.pbm-dot.green { background: #10b981; }
+
+.pbm-url-pill {
+  flex: 1;
+  max-width: 580px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 999px;
+  padding: 5px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: #94a3b8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pbm-lock {
+  font-size: 11px;
+}
+
+.pbm-url {
+  color: #cbd5e1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-zoom-hint {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e2e8f0;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-zoom-hint:hover {
+  background: #059669;
+  color: #ffffff;
+  border-color: #059669;
+}
+
+.pigura-canvas {
+  position: relative;
+  background: #022c22;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pigura-screenshot {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.pigura-canvas:hover .pigura-screenshot {
+  transform: scale(1.015);
+}
+
+.canvas-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 44, 34, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 2;
+}
+
+.pigura-canvas:hover .canvas-img-overlay {
+  opacity: 1;
+}
+
+.cio-badge {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(52, 211, 153, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.pigura-caption-bar {
+  background: #0f172a;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  border-top: 1px solid #1e293b;
+}
+
+.pcb-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pcb-avatar {
+  font-size: 24px;
+  background: #1e293b;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #059669;
+  flex-shrink: 0;
+}
+
+.pcb-info h4 {
+  font-family: var(--font-display, serif);
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.pcb-role {
+  font-size: 13px;
+  color: #cbd5e1;
+  margin: 0 0 4px 0;
+}
+
+.pcb-role strong {
+  color: #34d399;
+}
+
+.pcb-email {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.pcb-email a {
+  color: #60a5fa;
+  text-decoration: none;
+  font-family: var(--font-mono, monospace);
+}
+
+.pcb-email a:hover {
+  text-decoration: underline;
+}
+
+.pcb-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-pigura-link {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-pigura-link.primary {
+  background: #059669;
+  color: #ffffff;
+  border: 1px solid #059669;
+}
+
+.btn-pigura-link.primary:hover {
+  background: #047857;
+  transform: translateY(-1px);
+}
+
+.btn-pigura-link.outline {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-pigura-link.outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* 4 Capabilities Grid */
+.editorial-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.ec-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s ease;
+}
+
+.ec-card:hover {
+  transform: translateY(-3px);
+  border-color: #059669;
+  box-shadow: 0 12px 24px rgba(5, 150, 105, 0.08);
+}
+
+.ec-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.ec-card h3 {
+  font-family: var(--font-display, serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+}
+
+.ec-card p {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ec-card strong {
+  color: #0f172a;
+}
+
+/* ── LIGHTBOX MODAL STYLES ─────────────────────────── */
+.proof-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.25s ease;
+}
+
+.proof-modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 1080px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.pm-head {
+  padding: 18px 24px;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pm-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  color: #34d399;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.pm-title-group h3 {
+  font-family: var(--font-display, serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.pm-close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.pm-close-btn:hover {
+  background: #ef4444;
+}
+
+.pm-body {
+  padding: 16px;
+  overflow-y: auto;
+  background: #022c22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pm-full-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.pm-foot {
+  padding: 14px 24px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pm-foot p {
+  font-size: 13px;
+  color: #475569;
+  margin: 0;
+}
+
+.pm-link {
+  color: #059669;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pm-link:hover {
+  text-decoration: underline;
+}
+
+.baznas-btn.sm {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
 </style>
