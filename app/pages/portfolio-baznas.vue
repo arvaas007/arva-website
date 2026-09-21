@@ -2,23 +2,23 @@
 import { ref, computed, onMounted, watch } from 'vue'
 
 useHead({
-  title: 'Portofolio BAZNAS & Materi Riset Pimpinan — Arva Athallah Susanto',
+  title: 'Portofolio Riset BAZNAS & Materi Paparan Pimpinan — Arva Athallah Susanto',
   meta: [
     {
       name: 'description',
-      content: 'Portofolio akademik, materi presentasi pimpinan BAZNAS, publikasi International Journal of Zakat (IJAZ), dan kajian transformasi digital ZISWAF oleh Arva Athallah Susanto.'
+      content: 'Portofolio akademik, materi presentasi eksekutif pimpinan, publikasi International Journal of Zakat (IJAZ - BAZNAS), dan rekam jejak riset ZISWAF oleh Arva Athallah Susanto, S.EI., M.SEI.'
     },
     {
       name: 'keywords',
-      content: 'BAZNAS RI, Staf Riset dan Kajian Pengembangan, IJAZ BAZNAS, Materi Pimpinan BAZNAS, SROI Zakat, ZISWAF, Arva Athallah Susanto, Islamic Social Finance'
+      content: 'BAZNAS RI, Staf Riset dan Kajian Pengembangan, IJAZ BAZNAS, Materi Pimpinan, Prof Tika Widiastuti, Arva Athallah Susanto, SROI Zakat, ZCP BAZNAS, Gaya Hidup Halal'
     },
     {
       property: 'og:title',
-      content: 'Portofolio BAZNAS & Materi Riset Pimpinan — Arva Athallah Susanto'
+      content: 'Portofolio Riset BAZNAS & Materi Paparan Pimpinan — Arva Athallah Susanto'
     },
     {
       property: 'og:description',
-      content: 'Carousel presentasi materi pimpinan, publikasi IJAZ, dan kompetensi riset BAZNAS RI.'
+      content: 'Koleksi materi presentasi pimpinan, publikasi ilmiah IJAZ, dan kompetensi riset BAZNAS RI.'
     }
   ]
 })
@@ -27,12 +27,15 @@ useHead({
 interface Presentation {
   id: string
   title: string
+  categoryBadge: string
   subtitle: string
-  presenter: string
-  role: string
+  creator: string
+  designedFor: string
+  institution: string
   totalPages: number
   pdfUrl: string
   fileSize: string
+  date: string
   summary: string
   keyTopics: string[]
 }
@@ -41,39 +44,89 @@ const presentations: Presentation[] = [
   {
     id: 'presentation-1',
     title: 'Islamic Economics for Economic Resilience and Welfare',
-    subtitle: 'Materi Kajian Fikih Muamalah, Sukuk, dan Peran Zakat sebagai Instrumen Fiskal Islam',
-    presenter: 'Prof. Dr. Tika Widiastuti, S.E., M.Si (with Arva Athallah Susanto)',
-    role: 'Vice Dean 1 FEB UNAIR & Professor of Islamic Social Finance',
+    categoryBadge: 'Materi Eksekutif #01',
+    subtitle: 'Kajian Fikih Muamalah, Sukuk, dan Zakat sebagai Instrumen Fiskal Negara',
+    creator: 'Arva Athallah Susanto, S.EI., M.SEI',
+    designedFor: 'Prof. Dr. Tika Widiastuti, S.E., M.Si',
+    institution: 'Wakil Dekan I FEB Universitas Airlangga & Guru Besar Keuangan Sosial Islam',
     totalPages: 26,
     pdfUrl: '/documents/islamic-economics-resilience-welfare-arva.pdf',
-    fileSize: '2.9 MB (26 Slides)',
-    summary: 'Materi komprehensif tingkat pimpinan yang mengkaji integrasi Fikih Muamalah, instrumen Sukuk, penjaminan sirkulasi modal ke sektor riil, zakat sebagai instrumen fiskal negara, model pemberdayaan berbasis potensi mustahik (Azis et al.), serta perbandingan tata kelola zakat lintas negara (Indonesia, Malaysia, Saudi Arabia, Kuwait, Turki, Singapura).',
+    fileSize: '2.9 MB (26 Slide)',
+    date: '2026',
+    summary: 'Materi presentasi tingkat pimpinan yang merumuskan integrasi Fikih Muamalah sebagai solusi alternatif ekonomi konvensional. Membahas skema penerbitan dan investasi Sukuk untuk sektor riil, zakat sebagai instrumen fiskal negara (komparasi Indonesia, Malaysia, Arab Saudi, Kuwait, Turki, Singapura), model pemberdayaan berbasis potensi mustahik (Azis et al.), serta pergeseran indikator keberhasilan dari GDP konvensional menuju Falah.',
     keyTopics: [
-      'Fikih-Muamalah Based Alternatives',
-      'Sukuk Process Scheme & Real Sector Circulation',
-      'Zakat as Islamic Fiscal Instrument in Global Countries',
-      'Productive Zakat & Mustahik Potential Model',
-      'Zakat-Waqf Integration (12% Welfare Improvement)',
-      'Shift from GDP to Falah'
+      'Fikih-Muamalah Based Alternatives vs Conventional Instruments',
+      'Sukuk Process Scheme & Real Sector Capital Circulation',
+      'Zakat as Islamic Fiscal Instrument across 6 Global Countries',
+      'Productive Zakat & Mustahik Potential Model (Azis et al., 2017)',
+      'Zakat-Waqf Integration Framework (+12% Welfare Improvement)',
+      'Paradigm Shift: From GDP to Holistic Falah Indicators'
     ]
   },
   {
     id: 'presentation-2',
     title: 'Program Pemberdayaan Terukur, Terencana, dan Berdampak',
-    subtitle: 'Standarisasi Tata Kelola ZCP BAZNAS, BMC Zakat Sentra Ternak, dan Kaji Dampak SROI',
-    presenter: 'Center of Islamic Social Finance (CISF) / Prof. Dr. Tika Widiastuti, S.E., M.Si',
-    role: 'Senior Expert CISF & Guru Besar Keuangan Sosial Islam',
+    categoryBadge: 'Materi Eksekutif #02',
+    subtitle: 'Tata Kelola ZCP BAZNAS, BMC Sentra Ternak, dan Kaji Dampak SROI',
+    creator: 'Arva Athallah Susanto, S.EI., M.SEI',
+    designedFor: 'Prof. Dr. Tika Widiastuti, S.E., M.Si',
+    institution: 'Senior Expert Center of Islamic Social Finance (CISF) & Guru Besar FEB UNAIR',
     totalPages: 27,
     pdfUrl: '/documents/program-pemberdayaan-terukur-cisf-arva.pdf',
-    fileSize: '9.0 MB (27 Slides)',
-    summary: 'Materi strategis perancangan program pemberdayaan ZISWAF berbasis data dan bukti empiris. Membedah kinerja zakat nasional (DEKS BI), RPJPN 2025-2045, regulasi UU 23/2011 & PP 14/2014, Zakat Core Principles (ZCP 7 & 8), Business Model Canvas (BMC) Sentra Ternak Puskas BAZNAS, Resource Leveling SDM, Social Return on Investment (SROI) Value Map, Indeks Desa Zakat, Indeks Kifayah, Indeks Kesejahteraan BAZNAS, dan Model 4 ER (Rescue, Recovery, Reinforcement, Resilience).',
+    fileSize: '9.0 MB (27 Slide)',
+    date: '2026',
+    summary: 'Materi strategis perancangan program pemberdayaan ZISWAF berbasis bukti empiris dan regulasi nasional. Membedah kinerja zakat nasional (DEKS BI), RPJPN 2025-2045, regulasi UU 23/2011 & PP 14/2014, Zakat Core Principles (ZCP 7 & ZCP 8 BAZNAS), Business Model Canvas (BMC) Zakat Sentra Ternak Puskas BAZNAS, Social Return on Investment (SROI) Value Map, Indeks Desa Zakat, Indeks Kifayah, Indeks Kesejahteraan BAZNAS, dan Model Transformasi 4 ER (Rescue, Recovery, Reinforcement, Resilience).',
     keyTopics: [
-      'Kinerja Ekonomi Syariah Nasional & RPJPN 2025-2045',
-      'Tata Kelola Regulasi & Zakat Core Principles (ZCP 7-8)',
+      'Kinerja Ekonomi Syariah Nasional & Arah Zakat RPJPN 2025-2045',
+      'Regulasi UU 23/2011 & Standar Zakat Core Principles (ZCP 7-8)',
       '7 Tahap Perancangan Program & Business Model Canvas (BMC)',
-      'Pengukuran Dampak Berbasis SROI Value Map',
-      'Indeks Desa Zakat & Indeks Kesejahteraan BAZNAS',
-      'Transformasi Mustahik ke Muzakki (Model 4 ER)'
+      'Metodologi Kaji Dampak Social Return on Investment (SROI)',
+      'Indeks Desa Zakat, Indeks Kifayah & Indeks Kesejahteraan BAZNAS',
+      'Model 4 ER: Transformasi Mustahik Menjadi Muzakki'
+    ]
+  },
+  {
+    id: 'presentation-3',
+    title: 'Gaya Hidup Halal & Ekosistem Industri Halal Nasional',
+    categoryBadge: 'Materi Eksekutif #03',
+    subtitle: 'Lanskap Global SGIE, Regulasi BPJPH, dan Digital Branding Produk Halal',
+    creator: 'Arva Athallah Susanto, S.EI., M.SEI',
+    designedFor: 'Prof. Dr. Tika Widiastuti, S.E., M.Si',
+    institution: 'Masyarakat Ekonomi Syariah (MES) Jawa Timur & FEB Universitas Airlangga',
+    totalPages: 21,
+    pdfUrl: '/documents/gaya-hidup-halal-mes-arva.pdf',
+    fileSize: '4.7 MB (21 Slide)',
+    date: '2026',
+    summary: 'Materi paparan eksekutif komprehensif mengenai akselerasi ekonomi dan gaya hidup halal di Indonesia. Membahas skor State of the Global Islamic Economy (SGIE), ekosistem rantai pasok industri halal (KNEKS), regulasi mandatori sertifikasi halal (UU 33/2014 & Perpres 153/2024), titik kritis halal produk dan fasilitas produksi, literasi keuangan syariah (OJK), hingga strategi digital branding dan verifikasi halal berbasis aplikasi digital.',
+    keyTopics: [
+      'Global Islamic Economic Indicator (SGIE) Ranking & Outlook',
+      'Ruang Lingkup & Rantai Pasok Industri Halal (KNEKS Framework)',
+      'Regulasi Mandatori Sertifikasi Halal BPJPH & UU No. 33/2014',
+      'Analisis Titik Kritis Bahan Baku, Proses Produksi & Distribusi',
+      'Tingkat Literasi & Inklusi Keuangan Syariah Nasional (OJK)',
+      'Strategi Digital Halal Branding, E-Commerce, & Aplikasi Verifikasi'
+    ]
+  },
+  {
+    id: 'presentation-4',
+    title: 'Pentingnya Ketenangan Hati di Tengah Kesibukan Akademik',
+    categoryBadge: 'Materi Eksekutif #04',
+    subtitle: 'Manajemen Stres Akademik, Produktivitas Berimbang, dan Pendekatan Spiritual',
+    creator: 'Arva Athallah Susanto, S.EI., M.SEI',
+    designedFor: 'Prof. Dr. Tika Widiastuti, S.E., M.Si',
+    institution: 'Wakil Dekan I FEB Universitas Airlangga',
+    totalPages: 25,
+    pdfUrl: '/documents/pentingnya-ketenangan-hati-arva.pdf',
+    fileSize: '1.5 MB (25 Slide)',
+    date: '6 Agustus 2026',
+    summary: 'Materi orasi dan pembinaan sivitas akademika bertema kesehatan mental dan ketenangan spiritual dalam dunia akademik. Membedah data statistik stres akademik mahasiswa, dampak psikologis dan sosial dari beban studi, strategi manajemen waktu, mindfulness & latihan pernapasan, penataan lingkungan belajar, serta kiat praktis meraih prestasi optimal melalui ketenangan batin yang berlandaskan nilai-nilai spiritualitas Islam.',
+    keyTopics: [
+      'Dinamika Tekanan & Statistik Stres di Lingkungan Akademik',
+      'Korelasi Ketenangan Hati terhadap Fokus & Daya Ingat',
+      'Strategi Manajemen Waktu Terstruktur & Skala Prioritas',
+      'Praktik Mindfulness, Relaksasi & Pola Hidup Sehat Mahasiswa',
+      'Studi Kasus: Transformasi Akademik melalui Ketenangan Pikiran',
+      'Integrasi Keseimbangan Emosional dan Nilai Spiritualitas'
     ]
   }
 ]
@@ -117,7 +170,6 @@ async function renderCurrentPage() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    // Responsif viewport berdasarkan lebar layar
     let scale = zoomScale.value
     if (window.innerWidth < 768) {
       scale = 0.85
@@ -153,7 +205,6 @@ async function loadPresentationDoc() {
     await renderCurrentPage()
   } catch (err) {
     console.error('Error loading PDF document:', err)
-    // Fallback otomatis ke mode embed iframe jika canvas terhalang
     viewMode.value = 'embed'
   } finally {
     isRendering.value = false
@@ -194,7 +245,6 @@ watch(zoomScale, () => {
 onMounted(() => {
   loadPresentationDoc()
 
-  // Navigasi keyboard (Arrow Left / Arrow Right)
   window.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') nextPage()
     if (e.key === 'ArrowLeft') prevPage()
@@ -307,7 +357,7 @@ const jobMatrix = [
   {
     number: '02',
     roleTask: 'Membuat materi untuk Pimpinan BAZNAS',
-    evidence: 'Penyusunan 2 set deck materi pimpinan FEB UNAIR & CISF mencakup kebijakan fiskal zakat, SROI, ZCP BAZNAS, dan Business Model Canvas (BMC) Zakat Sentra Ternak.',
+    evidence: 'Rekam jejak terbukti dalam menyusun 4 set materi presentasi strategis tingkat pimpinan sivitas akademika & pakar (Prof. Dr. Tika Widiastuti) dengan standar substansi akademik dan visual berkualitas tinggi.',
     statusBadge: '100% Terpenuhi'
   },
   {
@@ -319,7 +369,7 @@ const jobMatrix = [
   {
     number: '04',
     roleTask: 'Mengelola jurnal IJAZ (International Journal of Zakat)',
-    evidence: 'Penulis aktif di IJAZ BAZNAS, menguasai workflow publikasi ilmiah Open Journal Systems (OJS), peer-review, dan standar bibliometrik internasional.',
+    evidence: 'Penulis aktif di IJAZ BAZNAS, menguasai alur kerja Open Journal Systems (OJS), telaah sejawat (peer-review), serta kaidah bibliometrik dan sitasi internasional.',
     statusBadge: '100% Terpenuhi'
   },
   {
@@ -350,22 +400,36 @@ const jobMatrix = [
         </div>
 
         <h1 class="hero-headline">
-          Portofolio Riset &amp; Materi Pimpinan <span class="highlight-text">BAZNAS RI</span>
+          Portofolio Riset &amp; Materi Paparan Pimpinan <span class="highlight-text">BAZNAS RI</span>
         </h1>
 
         <p class="hero-description">
           Dokumentasi karya ilmiah, publikasi <strong>International Journal of Zakat (IJAZ)</strong>, 
-          materi presentasi tingkat pimpinan, serta matriks pemenuhan kualifikasi 
+          materi presentasi eksekutif pimpinan, serta matriks pemenuhan kualifikasi 
           <strong>Staf Riset dan Kajian Pengembangan BAZNAS RI</strong> oleh 
           <strong>Arva Athallah Susanto, S.EI., M.SEI</strong>.
         </p>
 
+        <!-- Elegant Executive Attribution Notice -->
+        <div class="executive-notice-box">
+          <div class="enb-icon">✨</div>
+          <div class="enb-content">
+            <h4>Materi Paparan Strategis Pimpinan</h4>
+            <p>
+              Seluruh materi presentasi eksekutif pada portofolio ini disusun dan dikembangkan secara komprehensif oleh 
+              <strong>Arva Athallah Susanto, S.EI., M.SEI</strong> guna mendukung penyampaian materi, kuliah pakar, 
+              serta forum kebijakan strategis <strong>Prof. Dr. Tika Widiastuti, S.E., M.Si</strong> 
+              <em>(Wakil Dekan I FEB Universitas Airlangga &amp; Guru Besar Keuangan Sosial Islam)</em>.
+            </p>
+          </div>
+        </div>
+
         <div class="hero-cta-group">
           <a href="#presentation-carousel" class="baznas-btn primary">
-            📊 Tampilkan Carousel Materi Pimpinan ↓
+            📊 Jelajahi 4 Materi Presentasi Pimpinan ↓
           </a>
           <a href="#job-matrix" class="baznas-btn secondary">
-            📋 Matriks Kualifikasi BAZNAS
+            📋 Matriks Kualifikasi BAZNAS RI
           </a>
         </div>
 
@@ -377,13 +441,13 @@ const jobMatrix = [
           </div>
           <div class="metric-sep"></div>
           <div class="metric-item">
-            <span class="metric-number">2 Set</span>
-            <span class="metric-label">Materi Presentasi Pimpinan</span>
+            <span class="metric-number">4 Set</span>
+            <span class="metric-label">Materi Paparan Pimpinan</span>
           </div>
           <div class="metric-sep"></div>
           <div class="metric-item">
-            <span class="metric-number">CISF</span>
-            <span class="metric-label">Center of Islamic Social Finance</span>
+            <span class="metric-number">CISF &amp; MES</span>
+            <span class="metric-label">Kolaborasi Lembaga &amp; Industri</span>
           </div>
           <div class="metric-sep"></div>
           <div class="metric-item">
@@ -397,14 +461,15 @@ const jobMatrix = [
     <!-- ── INTERACTIVE PRESENTATION CAROUSEL (PDF SLIDE VIEWER) ── -->
     <section id="presentation-carousel" class="baznas-section">
       <div class="section-head">
-        <p class="section-kicker">Executive Presentation &amp; Research Materials</p>
-        <h2>Carousel Materi Riset &amp; Presentasi Pimpinan</h2>
+        <p class="section-kicker">Executive Presentation &amp; Policy Materials</p>
+        <h2>Carousel Materi Riset &amp; Paparan Pimpinan</h2>
         <p class="section-sub">
-          Materi presentasi komprehensif tingkat pimpinan yang dapat dijelajahi slide demi slide secara interaktif maupun diunduh dalam format PDF asli.
+          Koleksi 4 set materi presentasi tingkat pimpinan yang dirancang untuk forum strategis, kuliah umum pakar, dan kajian kebijakan publik. 
+          Dapat dijelajahi slide demi slide secara interaktif maupun diunduh dalam format PDF asli.
         </p>
       </div>
 
-      <!-- Presentation Selector Tabs -->
+      <!-- Presentation Selector Tabs (4 Tabs) -->
       <div class="pres-tabs-wrap">
         <button
           v-for="(pres, pIdx) in presentations"
@@ -413,7 +478,10 @@ const jobMatrix = [
           :class="{ active: selectedPresIndex === pIdx }"
           @click="selectPresentation(pIdx)"
         >
-          <span class="tab-badge">Materi #0{{ pIdx + 1 }}</span>
+          <div class="tab-top-row">
+            <span class="tab-badge">{{ pres.categoryBadge }}</span>
+            <span class="tab-date">📅 {{ pres.date }}</span>
+          </div>
           <span class="tab-title">{{ pres.title }}</span>
           <span class="tab-meta">{{ pres.fileSize }}</span>
         </button>
@@ -421,11 +489,15 @@ const jobMatrix = [
 
       <!-- Carousel Viewer Main Box -->
       <div class="carousel-container">
-        <!-- Presentation Header Info Bar -->
+        <!-- Presentation Header Info Bar with Elegant Attribution -->
         <div class="pres-info-bar">
           <div class="pib-left">
-            <span class="pib-presenter">👤 {{ currentPresentation.presenter }}</span>
-            <span class="pib-role">🏛️ {{ currentPresentation.role }}</span>
+            <div class="pib-attribution-badge">
+              <span class="badge-creator">Disusun oleh: <strong>{{ currentPresentation.creator }}</strong></span>
+              <span class="badge-arrow">➔</span>
+              <span class="badge-target">Untuk: <strong>{{ currentPresentation.designedFor }}</strong></span>
+            </div>
+            <span class="pib-role">🏛️ {{ currentPresentation.institution }}</span>
           </div>
           <div class="pib-actions">
             <!-- Download Button -->
@@ -519,7 +591,7 @@ const jobMatrix = [
           </div>
 
           <div class="ps-topics">
-            <h4>Poin-Poin Pokok yang Dibahas:</h4>
+            <h4>Poin-Poin Pokok yang Disajikan:</h4>
             <div class="topic-tags">
               <span v-for="t in currentPresentation.keyTopics" :key="t" class="topic-tag">
                 ✓ {{ t }}
@@ -536,15 +608,15 @@ const jobMatrix = [
         <p class="section-kicker">Position Competency Match</p>
         <h2>Matriks Kesesuaian Kualifikasi BAZNAS RI</h2>
         <p class="section-sub">
-          Pemetaan kompetensi akademik dan portofolio Arva Athallah Susanto terhadap kebutuhan formasi 
-          <strong>Staf Riset dan Kajian Pengembangan — BAZNAS RI</strong>.
+          Pemetaan kompetensi akademik, penguasaan materi pimpinan, dan portofolio Arva Athallah Susanto terhadap 
+          kebutuhan formasi <strong>Staf Riset dan Kajian Pengembangan — BAZNAS RI</strong>.
         </p>
       </div>
 
       <div class="matrix-grid">
         <article v-for="item in jobMatrix" :key="item.number" class="matrix-card">
           <div class="mc-top">
-            <span class="mc-num">Poin #{{ item.number }}</span>
+            <span class="mc-num">Kualifikasi Poin #{{ item.number }}</span>
             <span class="mc-badge">{{ item.statusBadge }}</span>
           </div>
           <h3 class="mc-task">"{{ item.roleTask }}"</h3>
@@ -643,6 +715,12 @@ const jobMatrix = [
           <a href="/documents/program-pemberdayaan-terukur-cisf-arva.pdf" download class="baznas-btn secondary">
             📥 Download Materi 2 PDF
           </a>
+          <a href="/documents/gaya-hidup-halal-mes-arva.pdf" download class="baznas-btn secondary">
+            📥 Download Materi 3 PDF
+          </a>
+          <a href="/documents/pentingnya-ketenangan-hati-arva.pdf" download class="baznas-btn secondary">
+            📥 Download Materi 4 PDF
+          </a>
         </div>
       </div>
     </section>
@@ -710,7 +788,7 @@ const jobMatrix = [
 .baznas-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -764,7 +842,7 @@ const jobMatrix = [
 
 .hero-headline {
   font-family: var(--font-display, serif);
-  font-size: clamp(32px, 5.2vw, 60px);
+  font-size: clamp(32px, 5.2vw, 58px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.04em;
@@ -782,12 +860,59 @@ const jobMatrix = [
   font-size: clamp(15px, 1.8vw, 17px);
   line-height: 1.7;
   color: #cbd5e1;
-  max-width: 780px;
-  margin: 0 auto 36px;
+  max-width: 820px;
+  margin: 0 auto 30px;
 }
 
 .hero-description strong {
   color: #f8fafc;
+}
+
+/* Elegant Executive Notice Box */
+.executive-notice-box {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  backdrop-filter: blur(16px);
+  border-radius: 18px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  max-width: 860px;
+  margin: 0 auto 36px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.enb-icon {
+  font-size: 26px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.enb-content h4 {
+  font-family: var(--font-display, serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #34d399;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.02em;
+}
+
+.enb-content p {
+  font-size: 13px;
+  color: #e2e8f0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.enb-content strong {
+  color: #ffffff;
+}
+
+.enb-content em {
+  color: #a7f3d0;
+  font-style: normal;
 }
 
 .hero-cta-group {
@@ -907,7 +1032,7 @@ const jobMatrix = [
 
 .section-head {
   text-align: center;
-  max-width: 780px;
+  max-width: 820px;
   margin: 0 auto 48px;
 }
 
@@ -941,22 +1066,16 @@ const jobMatrix = [
 /* ── CAROUSEL PRESENTATION SECTION ─────────────────── */
 .pres-tabs-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
   margin-bottom: 24px;
-}
-
-@media (max-width: 768px) {
-  .pres-tabs-wrap {
-    grid-template-columns: 1fr;
-  }
 }
 
 .pres-tab-btn {
   background: #ffffff;
   border: 2px solid #e2e8f0;
   border-radius: 16px;
-  padding: 20px 24px;
+  padding: 18px 20px;
   text-align: left;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -976,6 +1095,12 @@ const jobMatrix = [
   box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.15);
 }
 
+.tab-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .tab-badge {
   font-family: var(--font-mono, monospace);
   font-size: 11px;
@@ -984,16 +1109,22 @@ const jobMatrix = [
   text-transform: uppercase;
 }
 
+.tab-date {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+}
+
 .tab-title {
   font-family: var(--font-display, serif);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
   color: #0f172a;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .tab-meta {
-  font-size: 12px;
+  font-size: 11px;
   color: #64748b;
   font-weight: 500;
 }
@@ -1014,19 +1145,46 @@ const jobMatrix = [
   background: #0f172a;
   color: #ffffff;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
 }
 
 .pib-left {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
-.pib-presenter {
-  font-size: 14px;
-  font-weight: 700;
-  color: #f8fafc;
+.pib-attribution-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.badge-creator {
+  color: #a7f3d0;
+}
+
+.badge-creator strong {
+  color: #ffffff;
+}
+
+.badge-arrow {
+  color: #34d399;
+  font-weight: bold;
+}
+
+.badge-target {
+  color: #cbd5e1;
+}
+
+.badge-target strong {
+  color: #fbbf24;
 }
 
 .pib-role {
@@ -1552,7 +1710,7 @@ const jobMatrix = [
 }
 
 .cta-inner {
-  max-width: 760px;
+  max-width: 840px;
   margin: 0 auto;
 }
 
@@ -1576,7 +1734,7 @@ const jobMatrix = [
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 </style>
